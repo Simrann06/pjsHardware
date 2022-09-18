@@ -1,2 +1,2 @@
 # pjsHardware
-#The the repository for frontend and backend works 
+Add existing project files prior to the push to GitHub.
