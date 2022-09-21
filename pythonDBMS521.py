@@ -26,7 +26,7 @@ def add_product_cellphone(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -50,7 +50,7 @@ def add_product_cellphone(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -81,7 +81,7 @@ def add_product_tablet(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -105,7 +105,7 @@ def add_product_tablet(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -136,7 +136,7 @@ def add_product_laptop(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -160,7 +160,7 @@ def add_product_laptop(table, serialNumber, itemName, price):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -191,7 +191,7 @@ def remove_product_cellphone(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -213,7 +213,7 @@ def remove_product_cellphone(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -241,7 +241,7 @@ def remove_product_tablet(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -263,7 +263,7 @@ def remove_product_tablet(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -291,7 +291,7 @@ def remove_product_laptop(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -313,7 +313,7 @@ def remove_product_laptop(serialNumber):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -345,7 +345,7 @@ def edit_product_cellphone(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -370,7 +370,7 @@ def edit_product_cellphone(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -398,7 +398,7 @@ def edit_product_tablet(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -423,7 +423,7 @@ def edit_product_tablet(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -451,7 +451,7 @@ def edit_product_laptop(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
@@ -476,7 +476,7 @@ def edit_product_laptop(serialNumber, variable, value):
         with connect(
             host="localhost",
             user= 'root',
-            password= 'T@123456',
+            password= '',
             database="JMTechCo",
         ) as connection:
             with connection.cursor() as cursor:
