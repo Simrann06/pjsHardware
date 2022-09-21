@@ -19,8 +19,6 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if username == "root" and password == "password":
-            return redirect(url_for('home'))
         if username == "admin" and password == "password":
             return redirect(url_for('admin'))
         if username == "manager" and password == "password":
