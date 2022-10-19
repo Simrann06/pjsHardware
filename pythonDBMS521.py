@@ -523,5 +523,5 @@ def main():
 ## web app will evaluate first digit of serial number entered to determine which table it needs to access (3 for phone, 5 for laptop) 
 ##          then will call the method needed for the operation passing the parameters entered into the web app to said method)
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
