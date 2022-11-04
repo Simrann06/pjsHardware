@@ -20,9 +20,9 @@
           this.echo('hello there');
         }
       }, {
-        prompt: 'admin> ',
+        prompt: 'manager> ',
         login: function(username, password) {
-          if (username === 'admin' && password === 'password') {
+          if (username === 'manager' && password === 'password') {
             return Promise.resolve('TOKEN');
           }
           return Promise.reject();

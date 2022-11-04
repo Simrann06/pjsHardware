@@ -1,0 +1,2 @@
+https://itnext.io/how-to-create-interactive-terminal-like-website-888bb0972288
+https://stackoverflow.com/questions/4234056/can-we-execute-sql-queries-in-jquery
