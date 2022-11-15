@@ -21,7 +21,7 @@
 		}
 
 		.background {
-			background: black;
+			background: #000;
 			background-blend-mode: darken;
 			background-size: cover;
 		}
@@ -36,6 +36,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
 		}
 
 		.logo img {
@@ -70,7 +71,7 @@
 		}
 
 		.Homepage {
-			background-color: rgb(17, 100, 17);
+			background-color: rgb(white);
 			height: 600px;
 		}
 
@@ -174,33 +175,112 @@
 			cursor: pointer;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #000000;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+body{
+  font-family: 'Montserrat', sans-serif;
 }
 
-.dropdown-content a {
-  color: rgb(255, 248, 248);
-  padding: 12px 16px;
+.main-footer {
+  padding: 70px 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #7f8c83;
+}
+
+.main-footer ul {
+  list-style: none;
+}
+
+.main-footer h1 {
+  font-size: 22px;
+  line-height: 117%;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.main-footer h2 {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.main-footer ul li a {
+  color: #ffffffcc;
+  text-decoration:none;
+}
+
+footer {
+  background-color: #7f8c83;
+  border-top: 1px solid #7f8c83;
+  font-size: 17px;
+  padding: 15px 5px;
+  color: #ffffff;
+  text-align: center;
+}
+
+footer a {
   text-decoration: none;
-  display: block;
+  color: #ffffff;
 }
-.dropdown-content a:hover {background-color: rgb(36, 169, 23);}
 
-.dropdown:hover .dropdown-content {display: block;}
+.logoinfo p {
+  color: #ffffff;
+  font-size: 17px;
+  margin-top: 5px;
+}
 
+.contact-details {
+  margin-top: 20px;
+}
 
+.contact-details li {
+  list-style: none;
+  margin: 10px 0;
+}
 
+.contact-details li a {
+  text-decoration:none;
+  color: #f1f1f1;
+}
+
+.contact-details .fa {
+  color: #f1f1f1;
+  margin-right: 10px;
+}
+
+.sociallogos{
+  padding:20px 0;
+}
+
+.sociallogos .logobox a{
+  padding:0 10px;
+  text-decoration:none;
+  color:#ffffff;
+  font-size:22px;
+}
+
+.com ul li{
+  padding:5px 0;
+}
+
+@media only screen and (max-width: 749px) {
+  .main-footer {
+    padding:20px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+    .info{
+      padding:20px 0;
+  }
+}
 
 	</style>
 </head>
@@ -211,18 +291,13 @@
 			<div class="logo">
 				<img src= "logo.png">
 			</div>
-			<li><a href="#Homepage">Homepage</a></li>
-            <div class="dropdown">
-                <button class="dropbtn">Departments</button>
-                <div class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
-                </div>
-              </div>
-			<li><a href="#Customer Login">Customer Login</a></li>
-		</ul>
+            <li><a href="http://jpstest.epizy.com/product_page1.html">Products</a></li>
+			<li><a href="#Customer Login">Login</a></li>
+			<li><a href="http://jpstest.epizy.com/homePage.html">Cart</a></li>
+			<li><a href="#Checkout Page">Checkout</a></li>
 
+
+		</ul>
 		<div class="searchButton">
 			<input type="text" name="search" id="search">
 			<button class="btn btn-sm">Search</button>
@@ -245,13 +320,32 @@
 		</div>
 	</section>
 
-	<footer class="background">
-		<p class="text-footer">
-			Copyright © 2022 PJS Hardware CO. All rights are reserved. 
-		</p>
-
-
-	</footer>
+	<section id="footer">
+  <div class="main-footer">
+    <div class="logoinfo" data-aos="fade-up">
+      <h2>PJS Hardare</h2>
+      <div class="contact-details">
+        <h1>Contact Us</h1>
+        <li>
+          <div class="fa fa-phone"></div><a href="tel:864-999-9999">864-999-9999</a></li>
+        <li>
+          <div class="fa fa-envelope"></div><a href="mailto:support@pjshardware.com">support@pjshardware.com</a></li>
+        </li>
+    </div>
+  </div>
+  <div class="com " data-aos="fade-up">
+    <h1>About</h1>
+    <ul>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Cart</a></li>
+      <li><a href="#">Checkout</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+  </div>
+<footer>© PJS Hardware Supply Co 2022 All Rights Reserved</footer>
+</section>
 </body>
 
 </html>
+
