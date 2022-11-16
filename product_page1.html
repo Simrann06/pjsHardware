@@ -1,11 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Hardware Store</title>
+<title>Products</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
 <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+
+* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.navigation {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: sticky;
+			top: 1;
+			cursor: pointer;
+		}
+
+		.background {
+			background: #000;
+			background-blend-mode: darken;
+			background-size: cover;
+		}
+
+		.nav-list {
+			width: 70%;
+			display: flex;
+			align-items: center;
+			padding: 0px 0px 35px;
+		}
+
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.logo img {
+			width: 180px;
+			border-radius: 50px;
+		}
+
+		.nav-list li {
+			list-style: none;
+			padding: 25px 35px;
+		}
+
+		.nav-list li a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.nav-list li a:hover {
+			color: grey;
+		}
+
+		.searchButton {
+			width: 30%;
+			text-align: right;
+			padding: 0px 10px 35px;
+		}
+
+		#search {
+			padding: 5px;
+			font-size: 17px;
+			border: 2px solid rgb(128, 128, 128);
+			border-radius: 9px;
+			padding: 0px 0px 5px;
+		}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -19,13 +85,14 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+	padding: 8px 20px;
+	margin: 7px 0;
+	border: 2px solid white;
+	border-radius: 8px;
+	background: none;
+	color: white;
+	cursor: pointer;
+
 }
 
 button:hover {
@@ -125,10 +192,124 @@ span.psw {
      width: 100%;
   }
 }
+
+/* FOOTER */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main-footer {
+  padding: 70px 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: black;
+}
+
+.main-footer ul {
+  list-style: none;
+}
+
+.main-footer h1 {
+  font-size: 22px;
+  line-height: 117%;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.main-footer h2 {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.main-footer ul li a {
+  color: #ffffffcc;
+  text-decoration:none;
+}
+
+footer {
+  background-color: black;
+  border-top: 1px solid black;
+  font-size: 17px;
+  padding: 15px 5px;
+  color: #ffffff;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logoinfo p {
+  color: #ffffff;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.contact-details {
+  margin-top: 20px;
+}
+
+.contact-details li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.contact-details li a {
+  text-decoration:none;
+  color: #f1f1f1;
+}
+
+.contact-details .fa {
+  color: #f1f1f1;
+  margin-right: 10px;
+}
+
+.com ul li{
+  padding:5px 0;
+}
+
+@media only screen and (max-width: 749px) {
+  .main-footer {
+    padding:20px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+  }
+    .info{
+      padding:20px 0;
+  }
+}
 </style>
 </head>
 <body>
-    <h2></h2>
+	<nav class="navigation background">
+		<ul class="nav-list">
+			<div class="logo">
+				<img src= "logopjs.PNG">
+			</div>
+			<li><a href="http://jpstest.epizy.com/homePage.html">Home</a></li>
+            <li><a href="http://jpstest.epizy.com/product_page1.html">Products</a></li>
+			<li><a href="#Customer Login">Login</a></li>
+			<li><a href="http://jpstest.epizy.com/homePage.html">Cart</a></li>
+			<li><a href="#Checkout Page">Checkout</a></li>
+
+
+		</ul>
+		<div class="searchButton">
+			<input type="text" name="search" id="search">
+			<button class="btn btn-sm">Search</button>
+		</div>
+	</nav>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 
@@ -172,60 +353,9 @@ window.onclick = function(event) {
 }
 </script>
 <div id="container">
-  <!-- Start of Page Header -->
-  <div id="page_header">
-    <div id="page_heading">
-      <h1><span>Hardware Store</span></h1>
-      <h2><span>Your punchline here</span></h2>
-    </div>
-    <div id="page_headerlinks">
-      <ul>
-        <li><a href="#">Account Wish</a></li>
-        <li><a href="#">List Order</a></li>
-        <li><a href="#">Status</a></li>
-        <li class="last"><a href="#">Shopping Cart</a></li>
-      </ul>
-    </div>
-    <div id="page_headersearch">
-      <h3>Search:</h3>
-      <form action="#">
-        <div>
-          <input type="text" />
-          <input type="image" src="images/button_go.gif" class="button" />
-          <div class="clearthis">&nbsp;</div>
-        </div>
-      </form>
-    </div>
-    <div class="clearthis">&nbsp;</div>
-  </div>
-  <!-- End of Page Header -->
-  <!-- Start of Page Menu -->
-  <div id="page_menu">
-    <ul>
-      <li><a href="http://jpstest.epizy.com/homePage.html">Home</a></li>
-      <li><a href="#">OurStore</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Promotion</a></li>
-      <li class="last"><a href="#">Contact</a></li>
-    </ul>
-  </div>
-  <!-- End of Page Menu -->
+
   <!-- Start of Left Sidebar -->
   <div id="left_sidebar">
-    <!-- Start of Newsletter Signup Form -->
-    <div id="newsletter">
-      <h2>Newsletter Signup!</h2>
-      <form action="#">
-        <div>
-          <input type="text" />
-          <input type="image" src="images/button_ok.gif" class="button" />
-          <div class="clearthis">&nbsp;</div>
-        </div>
-      </form>
-      <div id="link_cancel"> <a href="#">Cancel Subscription</a> </div>
-    </div>
-    <!-- End of Newsletter Signup Form -->
     <!-- Start of Categories Box -->
     <div id="categories">
       <div id="categories_header">
@@ -241,15 +371,6 @@ window.onclick = function(event) {
       <div class="clearthis">&nbsp;</div>
     </div>
     <!-- End of Categories Box -->
-    <!-- Start of Special Offer Box -->
-    <div id="specialoffer">
-      <div id="specialoffer_text">
-        <h2><span>Get Special Offer <strong>Up to 25% off</strong></span></h2>
-      </div>
-      <div id="specialoffer_link"> <a href="#">...Go</a> </div>
-      <div class="clearthis">&nbsp;</div>
-    </div>
-    <!-- End of Special Offer Box -->
   </div>
   <!-- End of Left Sidebar -->
   <!-- Start of Main Content Area -->
@@ -329,17 +450,37 @@ window.onclick = function(event) {
   <!-- Start of Page Footer -->
   <div id="page_footer">
     <div id="product_brands">
-      <ul>
-        <li class="zalcom"><span>Zalcom</span></li>
-        <li class="digital"><span>Digital</span></li>
-        <li class="adept"><span>Adept</span></li>
-        <li class="simtel"><span>Simtel</span></li>
-      </ul>
     </div>
-    <div id="powered_by"> Powered by <a href="https://app.infinityfree.net/">infinity free</a> </div>
     <div class="clearthis">&nbsp;</div>
   </div>
   <!-- End of Page Footer -->
 </div>
+</section>
+
+	<section id="footer">
+  <div class="main-footer">
+    <div class="logoinfo" data-aos="fade-up">
+      <h2>PJS Hardare</h2>
+      <div class="contact-details">
+        <h1>Contact Us</h1>
+        <li>
+          <div class="fa fa-phone"></div><a href="tel:864-999-9999">864-999-9999</a></li>
+        <li>
+          <div class="fa fa-envelope"></div><a href="mailto:support@pjshardware.com">support@pjshardware.com</a></li>
+        </li>
+    </div>
+  </div>
+  <div class="com " data-aos="fade-up">
+    <h1>About</h1>
+    <ul>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Cart</a></li>
+      <li><a href="#">Checkout</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+  </div>
+<footer>© PJS Hardware Supply Co 2022 All Rights Reserved</footer>
+</section>
 </body>
 </html>

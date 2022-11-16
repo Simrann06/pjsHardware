@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Check Out</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
+h2{
+  font-size: 25px;
+  padding: 10px 10px;
+  color: black;
+  text-align: center;
 }
+
 * {
 			margin: 0;
 			padding: 0;
@@ -80,34 +83,6 @@ body {
   box-sizing: border-box;
 }
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
-
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
 
 .container {
   background-color: #f2f2f2;
@@ -171,6 +146,7 @@ span.price {
     margin-bottom: 20px;
   }
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 *{
@@ -296,7 +272,7 @@ footer a {
       
         <div class="row">
           <div class="col-50">
-            <h3>Billing Information</h3>
+            <h3>Billing/Shipping Information</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="fname" name="firstname" placeholder="John Doe">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -352,6 +328,7 @@ footer a {
       </form>
     </div>
 </div>
+
 <section id="footer">
 	<div class="main-footer">
 	  <div class="logoinfo" data-aos="fade-up">
@@ -366,17 +343,16 @@ footer a {
 	  </div>
 	</div>
 	<div class="com " data-aos="fade-up">
-	  <h1>About</h1>
+	  <h1>Links</h1>
 	  <ul>
-		<li><a href="#">Products</a></li>
-		<li><a href="#">Cart</a></li>
-		<li><a href="#">Checkout</a></li>
+		<li><a href="http://jpstest.epizy.com/product_page1.html">Products</a></li>
+		<li><a href="http://jpstest.epizy.com/cart.html">Cart</a></li>
+		<li><a href="http://jpstest.epizy.com/checkout.html">Checkout</a></li>
 		<li><a href="#">Contact Us</a></li>
 	  </ul>
 	</div>
 	</div>
   <footer>© PJS Hardware Supply Co 2022 All Rights Reserved</footer>
   </section>
-
 </body>
 </html>
