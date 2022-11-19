@@ -10,25 +10,33 @@ body {
     overflow-x:hidden;
 }
 
-.bg-text {
+a:link {
   color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.bg-text {
+  background-color: #000000; /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  list-style: none;
   font-weight: bold;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  width: 80%;
+  width: 20%;
   padding: 20px;
   text-align: center;
-  list-style: none;
-
+  border: .5px solid #4C4E52;
 }
 
 h2 {
 
   font-size: 30px;
-  padding: 20px 20px 10px 10px;
+  padding: 10px 10px 10px 10px;
   color: white;
   text-align: center;
 
@@ -193,6 +201,29 @@ h2 {
 			color: white;
 			cursor: pointer;
 }
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: gray;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
@@ -302,8 +333,8 @@ footer a {
 			<li><a href="http://jpstest.epizy.com/homePage.html">Home</a></li>
             <li><a href="http://jpstest.epizy.com/productpage_main.html">Products</a></li>
 			<li><a href="#Customer Login">Login</a></li>
-			<li><a href="http://jpstest.epizy.com/homePage.html">Cart</a></li>
-			<li><a href="#Checkout Page">Checkout</a></li>
+			<li><a href="http://jpstest.epizy.com/cart.html">Cart</a></li>
+			<li><a href="http://jpstest.epizy.com/checkout.html">Checkout</a></li>
 
 
 		</ul>
