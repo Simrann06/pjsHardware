@@ -5,12 +5,74 @@
 :root {
    --size: 1.4;
 }
+  * {
+			margin: 0;
+			padding: 0;
+		}
+
+		.navigation {
+			display: flex;
+			align-items: left;
+			justify-content: left;
+			position: sticky;
+			top: 1;
+			cursor: pointer;
+		}
+
+		.background {
+			background: #000;
+			background-blend-mode: darken;
+			background-size: cover;
+		}
+
+		.nav-list {
+			width: 70%;
+			display: flex;
+			align-items: center;
+			padding: 0px 0px 35px;
+		}
+
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.logo img {
+			width: 180px;
+			border-radius: 50px;
+		}
+
+		.nav-list li {
+			list-style: none;
+			padding: 25px 35px;
+		}
+
+		.nav-list li a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.nav-list li a:hover {
+			color: grey;
+		}
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
 </head>
 <body>
+  <nav class="navigation background">
+		<ul class="nav-list">
+			<div class="logo">
+				<img src= "logopjs.PNG">
+			</div>
+			<li><a href="http://jpstest.epizy.com/homePage.html">Log Out</a></li>
+      <li><a href="http://jpstest.epizy.com/homePage.html">Run Report</a></li>
+		</ul>
+	</nav>
+
 <script>
   $('body').terminal(function(command, term) {
     var cmd = $.terminal.parse_command(command);
