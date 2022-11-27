@@ -82,11 +82,11 @@
 		{
         prompt: 'Insert: > ',
 
-		Insert: function ($ID, $name, $desc,$price, $dept, $qnty) 
+		Insert: function ($ID, $name, $desc,$price, $dept) 
 		{
 		try { 
 
-		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept, $qnty });
+		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept });
 		}
 
 		catch(err) { 
