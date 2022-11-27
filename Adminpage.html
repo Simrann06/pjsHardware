@@ -74,26 +74,20 @@
 	</nav>
 
 <script>
-  $('body').terminal(function(command, term) {
-    var cmd = $.terminal.parse_command(command);
-    if (cmd.name === 'login') {
-      term.push({
-        hello: function() {
-          this.echo('hello there');
-        }
-      }, {
-        prompt: 'admin> ',
-        login: function(username, password) {
-          if (username === 'admin' && password === 'password') {
-            return Promise.resolve('TOKEN');
-          }
-          return Promise.reject();
-        }
-      });
-    } else {
-      this.error('Invalid Command.');
-    }
-  });
+
+function InsertProduct($ID, $name, $desc,$price, $dept) 
+{
+try { 
+
+    $.post("InsertProduct.php", { $ID, $name, $desc,$price, $dept });
+}
+
+catch(err) { 
+
+    alert("ERROR");
+}
+}
+
 </script>
 </body>
 </html>

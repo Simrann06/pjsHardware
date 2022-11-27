@@ -1,0 +1,10 @@
+<?php
+
+$ID = $_POST['ID'];
+$antRate = $_POST['antRate'];
+
+$con=mysqli_connect("localhost","root","pass","login");
+
+mysqli_query($con,"INSERT INTO product (Product_ID , Product_Name , Product_Description, Product_Price, Department_Name) VALUES (%s, %s, %s, 'cellphone');");
+
+?>
