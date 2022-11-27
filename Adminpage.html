@@ -68,26 +68,34 @@
 			<div class="logo">
 				<img src= "logopjs.PNG">
 			</div>
-			<li><a href="http://jsphardware.store/homePage.html">Log Out</a></li>
-      <li><a href="http://jsphardware.store/homePage.html">Run Report</a></li>
+			<li><a href="http://jpstest.epizy.com/homePage.html">Log Out</a></li>
+      <li><a href="http://jpstest.epizy.com/homePage.html">Run Report</a></li>
 		</ul>
 	</nav>
 
 <script>
+  $('body').terminal(function(command, term) {
+    var cmd = $.terminal.parse_command(command);
 
-function InsertProduct($ID, $name, $desc,$price, $dept) 
-{
-try { 
+    if (cmd.name === 'Insert') {
+      term.push(
+		{
+        prompt: 'Insert: > ',
 
-    $.post("InsertProduct.php", { $ID, $name, $desc,$price, $dept });
-}
+		Insert: function ($ID, $name, $desc,$price, $dept, $qnty) 
+		{
+		try { 
 
-catch(err) { 
+		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept, $qnty });
+		}
 
-    alert("ERROR");
-}
-}
+		catch(err) { 
 
+		    alert("ERROR");
+		}
+	  }});
+	 }
+	});
 </script>
 </body>
 </html>
