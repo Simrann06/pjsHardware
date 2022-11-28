@@ -1,10 +1,10 @@
 <?php
 
-$attribute = $_POST['attribute1'];
-$value = $_POST['value1'];
+$attMan = $_POST['attMan'];
+$valMan = $_POST['valMan'];
 
 $con=mysqli_connect("ns1.byethost7.org","jsphardw_manager","zl4.N@_rF@Qe","jsphardw_idkwhattoputhere");
 
-mysqli_query($con,"DELETE FROM Product WHERE $attribute = $value;");
+mysqli_query($con,"DELETE FROM Product WHERE $attMan = $valMan;");
 
 ?>

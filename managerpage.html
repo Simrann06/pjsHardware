@@ -76,24 +76,51 @@
 <script>
   $('body').terminal(function(command, term) {
     var cmd = $.terminal.parse_command(command);
-    if (cmd.name === 'login') {
-      term.push({
-        hello: function() {
-          this.echo('hello there');
-        }
-      }, {
-        prompt: 'manager> ',
-        login: function(username, password) {
-          if (username === 'manager' && password === 'password') {
-            return Promise.resolve('TOKEN');
-          }
-          return Promise.reject();
-        }
-      });
-    } else {
-      this.error('Invalid Command.');
-    }
-  });
+
+    if (cmd.name === 'Edit') {
+      term.push(
+		{
+        prompt: 'Edit> ',
+
+		Insert: function ($attribute1Man, $value1Man, $attribute2Man, $value2Man) 
+		{
+		try { 
+
+		    $.post("InsertProductAdmin.php", { $attribute1Man, $value1Man, $attribute2Man ,$value2Man });
+
+			echo("Sucess")
+		}
+
+		catch(err) { 
+
+		    alert("ERROR");
+		}
+	  }});
+	 }
+
+    if (cmd.name === 'Delete') {
+      term.push(
+		{
+        prompt: 'Delete> ',
+
+		Insert: function ($attMan, $valMan) 
+		{
+		try { 
+
+		    $.post("InsertProductAdmin.php", { $attMan, $valMan });
+
+			echo("Sucess")
+		}
+
+		catch(err) { 
+
+		    alert("ERROR");
+		}
+	  }});
+	 }
+
+	});
+
 </script>
 </body>
 </html>

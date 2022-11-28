@@ -68,8 +68,8 @@
 			<div class="logo">
 				<img src= "logopjs.PNG">
 			</div>
-			<li><a href="http://jpstest.epizy.com/homePage.html">Log Out</a></li>
-      <li><a href="http://jpstest.epizy.com/homePage.html">Run Report</a></li>
+			<li><a href="http://jsphardware.store/homePage.html">Log Out</a></li>
+      <li><a href="http://jsphardware.store/homePage.html">Run Report</a></li>
 		</ul>
 	</nav>
 
@@ -80,13 +80,15 @@
     if (cmd.name === 'Insert') {
       term.push(
 		{
-        prompt: 'Insert: > ',
+        prompt: 'Insert> ',
 
-		Insert: function ($ID, $name, $desc,$price, $dept) 
+		Insert: function ($ID, $name, $desc, $price, $dept) 
 		{
 		try { 
 
 		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept });
+
+			echo("Sucess")
 		}
 
 		catch(err) { 
@@ -95,7 +97,51 @@
 		}
 	  }});
 	 }
+
+    if (cmd.name === 'Edit') {
+      term.push(
+		{
+        prompt: 'Edit> ',
+
+		Insert: function ($attribute1, $value1, $attribute2, $value2) 
+		{
+		try { 
+
+		    $.post("InsertProductAdmin.php", { $attribute1, $value1, $attribute2 ,$value2 });
+
+			echo("Sucess")
+		}
+
+		catch(err) { 
+
+		    alert("ERROR");
+		}
+	  }});
+	 }
+
+    if (cmd.name === 'Delete') {
+      term.push(
+		{
+        prompt: 'Delete> ',
+
+		Insert: function ($att, $val) 
+		{
+		try { 
+
+		    $.post("InsertProductAdmin.php", { $att, $val });
+
+			echo("Sucess")
+		}
+
+		catch(err) { 
+
+		    alert("ERROR");
+		}
+	  }});
+	 }
+
 	});
+
 </script>
 </body>
 </html>
