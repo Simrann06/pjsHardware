@@ -84,7 +84,7 @@
     if (cmd.name === 'EditP'){
       term.push(
 		{
-        prompt: 'Edit Price > ',
+        prompt: 'EditP > ',
 
 		EditP: function ($price, $ProdID) 
 		{
@@ -120,7 +120,7 @@
 	if (cmd.name === 'EditD') {
       term.push(
 		{
-        prompt: 'Edit Description> ',
+        prompt: 'EditD > ',
 
 		EditD: function ($desc, $ProdID) 
 		{
@@ -131,7 +131,7 @@
 
 			$.ajax({
             	type: 'POST',
-            	url: 'EditDescManger.php',
+            	url: 'EditDescManager.php',
             	data: { desc:desc, ProdID:ProdID},
             	success: function(result) {
                 	$('#sonuc').html(result);
