@@ -77,6 +77,10 @@
   $('body').terminal(function(command, term) {
     var cmd = $.terminal.parse_command(command);
 
+
+// function to Insert products into the database 
+// command = Insert Product_ID Product_Name Product_Description Product_Price Departent_Name
+
     if (cmd.name === 'Insert') {
       term.push(
 		{
@@ -84,9 +88,25 @@
 
 		Insert: function ($ID, $name, $desc, $price, $dept) 
 		{
+		var ID = $ID;
+		var name = $name;
+		var desc = $desc;
+		var price = $price;
+		var dept = $dept;
+
 		try { 
 
-		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept });
+			$.ajax({
+            	type: 'POST',
+            	url: 'InsertProduct.php',
+            	data: { ID:ID, name:name, desc:desc, price:price, dept:dept},
+            	success: function(result) {
+                	$('#sonuc').html(result);
+            	},
+           		error: function() {
+                	alert('ERROR');
+            	}
+        	});
 
 			alert("Sucess")
 		}
@@ -97,16 +117,33 @@
 	  }});
 	 }
 
-    if (cmd.name === 'Edit') {
+// function to edit the products price
+// command = EditP newprice  Product_ID
+
+
+    if (cmd.name === 'EditP'){
       term.push(
 		{
-        prompt: 'Edit> ',
+        prompt: 'Edit Price > ',
 
-		Insert: function ($attribute1, $value1, $attribute2, $value2) 
+		EditP: function ($price, $ProdID) 
 		{
+		var price = $price;
+		var ProdID = $ProdID;
+
 		try { 
 
-		    $.post("InsertProductAdmin.php", { $attribute1, $value1, $attribute2 ,$value2 });
+			$.ajax({
+            	type: 'POST',
+            	url: 'EditPriceAdmin.php',
+            	data: { price:price, ProdID:ProdID},
+            	success: function(result) {
+                	$('#sonuc').html(result);
+            	},
+           		error: function() {
+                	alert('ERROR');
+            	}
+        	});
 
 			alert("Sucess")
 		}
@@ -116,21 +153,71 @@
 		}
 	  }});
 	 }
+
+// function to edit the products description
+// command = EditD newdescription Product_ID
+
+	if (cmd.name === 'EditD') {
+      term.push(
+		{
+        prompt: 'Edit Description> ',
+
+		EditD: function ($desc, $ProdID) 
+		{
+		var desc = $desc;
+		var ProdID = $ProdID;
+
+		try { 
+
+			$.ajax({
+            	type: 'POST',
+            	url: 'EditDescAdmin.php',
+            	data: { desc:desc, ProdID:ProdID},
+            	success: function(result) {
+                	$('#sonuc').html(result);
+            	},
+           		error: function() {
+                	alert('ERROR');
+            	}
+        	});
+
+			alert("Sucess")
+		}
+
+		catch(err) { 
+		alert(err.message);
+		}
+	  }});
+	 }
+
+// function to delete product
+// command = Delete Product_ID
 
     if (cmd.name === 'Delete') {
       term.push(
 		{
         prompt: 'Delete> ',
 
-		Insert: function ($att, $val) 
+		Delete: function ($val) 
 		{
+		var val = $val;
+
 		try { 
 
-		    $.post("InsertProductAdmin.php", { $att, $val });
+			$.ajax({
+            	type: 'POST',
+            	url: 'DeleteObjectAdmin.php',
+            	data: { val:val },
+            	success: function(result) {
+                	$('#sonuc').html(result);
+            	},
+           		error: function() {
+                	alert('ERROR');
+            	}
+        	});
 
 			alert("Sucess")
 		}
-
 		catch(err) { 
 		alert(err.message);
 		}
