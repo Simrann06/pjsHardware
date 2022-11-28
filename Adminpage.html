@@ -88,12 +88,11 @@
 
 		    $.post("InsertProduct.php", { $ID, $name, $desc, $price, $dept });
 
-			echo("Sucess")
+			alert("Sucess")
 		}
 
 		catch(err) { 
-
-		    alert("ERROR");
+		alert(err.message);
 		}
 	  }});
 	 }
@@ -109,12 +108,11 @@
 
 		    $.post("InsertProductAdmin.php", { $attribute1, $value1, $attribute2 ,$value2 });
 
-			echo("Sucess")
+			alert("Sucess")
 		}
 
 		catch(err) { 
-
-		    alert("ERROR");
+		alert(err.message);
 		}
 	  }});
 	 }
@@ -130,12 +128,11 @@
 
 		    $.post("InsertProductAdmin.php", { $att, $val });
 
-			echo("Sucess")
+			alert("Sucess")
 		}
 
 		catch(err) { 
-
-		    alert("ERROR");
+		alert(err.message);
 		}
 	  }});
 	 }
