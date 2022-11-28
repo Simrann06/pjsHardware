@@ -77,14 +77,10 @@
   $('body').terminal(function(command, term) {
     var cmd = $.terminal.parse_command(command);
 
+    term.push({
+
 // function to edit the products price
 // command = EditP newprice  Product_ID
-
-
-    if (cmd.name === 'EditP'){
-      term.push(
-		{
-        prompt: 'EditP > ',
 
 		EditP: function ($price, $ProdID) 
 		{
@@ -95,7 +91,7 @@
 
 			$.ajax({
             	type: 'POST',
-            	url: 'EditPriceManager.php',
+            	url: 'EditPriceAdmin.php',
             	data: { price:price, ProdID:ProdID},
             	success: function(result) {
                 	$('#sonuc').html(result);
@@ -111,18 +107,12 @@
 		catch(err) { 
 		alert(err.message);
 		}
-	  }});
-	 }
+	  },
 
 // function to edit the products description
 // command = EditD newdescription Product_ID
 
-	if (cmd.name === 'EditD') {
-      term.push(
-		{
-        prompt: 'EditD > ',
-
-		EditD: function ($desc, $ProdID) 
+	EditD: function ($desc, $ProdID) 
 		{
 		var desc = $desc;
 		var ProdID = $ProdID;
@@ -131,7 +121,7 @@
 
 			$.ajax({
             	type: 'POST',
-            	url: 'EditDescManager.php',
+            	url: 'EditDescAdmin.php',
             	data: { desc:desc, ProdID:ProdID},
             	success: function(result) {
                 	$('#sonuc').html(result);
@@ -147,11 +137,10 @@
 		catch(err) { 
 		alert(err.message);
 		}
-	  }});
-	 }
+	  },
 
 	});
-
+});
 </script>
 </body>
 </html>
