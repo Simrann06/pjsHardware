@@ -13,10 +13,21 @@ $sql =("SELECT * FROM Product");
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " 
-            . $row["firstname"]. " " . $row["lastname"]. "<br>";
-      }
+     //while($row = $result->fetch_assoc()) {
+     //  echo "Product ID: " . $row["Product_ID"]. "Product Name: " . $row["Product_Name"]. "Product Description: " . $row["Product_Description"].  "Product Price: " . $row["Product_Price"]."Department Name: " . $row["Department_Name"]. "<br>";
+     //}
+$i = 0;
+while($row = $result->fetch_assoc())
+{
+    echo "<table border='1'>";
+    echo "<tr>";
+    foreach ($row as $value) {
+      echo "<td>" . $value . "</td>";
+    }
+    echo "</tr>";
+
+    echo "</table><br />";
+}
 } 
 else {
       echo "Error";
