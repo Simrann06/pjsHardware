@@ -188,9 +188,9 @@
 	  },
 
 // function to delete product
-// command = Delete Product_ID
+// command = DeleteProduct Product_ID
 
-	Delete: function ($val) 
+	DeleteProduct: function ($val) 
 		{
 		var val = $val;
 
@@ -199,6 +199,35 @@
 			$.ajax({
             	type: 'POST',
             	url: 'DeleteObjectAdmin.php',
+            	data: { val:val },
+            	success: function(result) {
+                	$('#sonuc').html(result);
+            	},
+           		error: function() {
+                	alert('ERROR');
+            	}
+        	});
+
+			alert("Sucess")
+		}
+		catch(err) { 
+		alert(err.message);
+		}
+	  },
+
+
+// function to delete customer
+// command = DeleteCustomer Product_ID
+
+	DeleteCustomer: function ($val) 
+		{
+		var val = $val;
+
+		try { 
+
+			$.ajax({
+            	type: 'POST',
+            	url: 'DeleteCustomer.php',
             	data: { val:val },
             	success: function(result) {
                 	$('#sonuc').html(result);
