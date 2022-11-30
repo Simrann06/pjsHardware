@@ -22,14 +22,33 @@ $dbname = "jsphardw_idkwhattoputhere";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$stmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone, Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-$stmt->bind_param("i,s,s,s,s,s,i,s,s,s,i,i,i", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
-
-$stmt->execute();
-
-$stmt->close();
-$conn->close();
-
 ?>
 
+<!doctype html>
+<html>
+    <head>
+        <title>PHP amd MySQL</title>
+    </head>
+    <body>
+
+        <h1>PHP and MySQL</h1>
+
+        <?php
+
+            $stmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone, Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+            $stmt->bind_param("i,s,s,s,s,s,i,s,s,s,i,i,i", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
+
+            if ($stmt->execute());{
+                echo "Thank you for your order"
+            }
+            else{
+                echo"ERROR";
+            }
+
+            $stmt->close();
+            $conn->close();
+
+        ?>
+    </body>
+</html>
