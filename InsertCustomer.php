@@ -29,35 +29,7 @@ $stmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip
 
 try {  
         $stmt->execute();  
-        echo "success";
-        echo "<br>";
-        echo $ID;
-        echo "<br>";
-        echo $name;
-        echo "<br>";
-        echo $email ;
-        echo "<br>";
-        echo $phone;
-        echo "<br>";
-        echo $addr ;
-        echo "<br>";
-        echo $city;
-        echo "<br>";
-        echo $zip ;
-        echo "<br>";
-        echo $state ;
-        echo "<br>";
-        echo $card_name ;
-        echo "<br>";
-        echo $card_num ;
-        echo "<br>";
-        echo $Exp_month;
-        echo "<br>";
-        echo $Exp_year; 
-        echo "<br>";
-        echo $cvv;
-
-
+        echo "<script>alert('Your Order Has Been Submitted');</script>";
     }  
 catch (Exception $e) {  
         echo $e;
@@ -69,3 +41,200 @@ $conn->close();
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Thank You For Your Order!</title>
+
+<style>
+
+* {
+			margin: 0;
+			padding: 0;
+		}
+        .entire {
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            justify-content: center;
+            align-items: center;
+            padding: 100px 100px 100px;
+        }
+		.btnblack {
+			padding: 8px 20px;
+			margin: 7px 0;
+			border: 2px solid black;
+			border-radius: 8px;
+			background: none;
+			color: black;
+			cursor: pointer;
+            align-items: center;
+		}
+
+		.navigation {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: sticky;
+			top: 1;
+			cursor: pointer;
+		}
+
+		.background {
+			background: #000;
+			background-blend-mode: darken;
+			background-size: cover;
+		}
+
+		.nav-list {
+			width: 70%;
+			display: flex;
+			align-items: center;
+			padding: 0px 0px 35px;
+		}
+
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		.logo img {
+			width: 180px;
+			border-radius: 50px;
+		}
+
+		.nav-list li {
+			list-style: none;
+			padding: 25px 35px;
+		}
+
+		.nav-list li a {
+			text-decoration: none;
+			color: white;
+		}
+
+		.nav-list li a:hover {
+			color: grey;
+		}
+
+		.searchButton {
+			width: 30%;
+			text-align: right;
+			padding: 0px 10px 35px;
+		}
+
+		#search {
+			padding: 5px;
+			font-size: 17px;
+			border: 2px solid rgb(128, 128, 128);
+			border-radius: 9px;
+			padding: 0px 0px 5px;
+		}
+
+body {
+	height: 100%;
+	background-color: #ffffff;
+	color: #85859c;
+	font-family: tahoma, arial, sans-serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+a {
+	color: #85859c;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #69699c;
+}
+
+span {
+	display: none;
+}
+
+img {
+	border: none;
+}
+
+p {
+	margin: 10px 0px 5px;
+	text-align: justify;
+	line-height: 14px;
+}
+
+.clearthis {
+	margin : 0px;
+	height : 1px;
+	clear : both;
+	float : none;
+	font-size : 1px;
+	line-height : 0px;
+	overflow : hidden;
+}
+
+#container {
+	margin: 0px auto;
+	width: 780px;
+    padding: 0px 0px 500px ;
+}
+
+input {
+	padding-left: 2px;
+	background-color: #fff;
+	color: #85859c;
+	font-family: tahoma, arial, sans-serif;
+	font-size: 11px;
+}
+
+
+/* Page Header */
+
+
+/* Main Content Area */
+
+#main_content {
+	margin-right: 2px;
+	width: 644px;
+	text-align: center;
+	float: right;
+    color: black;
+}
+
+#main_content .h_divider {
+	margin-bottom: 20px;
+	height: 500px;
+	background-color: #c2c2cd;
+	overflow: hidden;
+}
+
+</style>
+</head>
+<body>
+	<nav class="navigation background">
+		<ul class="nav-list">
+			<div class="logo">
+				<img src= "logopjs.PNG">
+			</div>
+		</ul>
+		<div class="searchButton">
+			<input type="text" name="search" id="search">
+			<button class="btn btn-sm">Search</button>
+		</div>
+	</nav>
+<div id="container">
+  <!-- Start of Main Content Area -->
+  <div id="main_content">
+    <h1>Thank You For Your Order!</h1>
+    <a href="http://jsphardware.store/homePage.html" class ="btnblack">Return To Home Page </a>
+  </div>
+  <!-- End of Main Content Area -->
+  
+  <!-- Start of Page Footer -->
+</div>
+</section>
+</body>
+</html>
