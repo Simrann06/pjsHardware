@@ -39,8 +39,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
             $stmt->bind_param("i,s,s,s,s,s,i,s,s,s,i,i,i", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
 
-            if ($stmt->execute());{
-                echo "Thank you for your order"
+            if ($stmt->execute()){
+                echo "Thank you for your order";
             }
             else{
                 echo"ERROR";
