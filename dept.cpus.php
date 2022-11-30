@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
+
 <html>
 <head>
-<title>GPU's</title>
+<title>CPU's</title>
 
 <style>
 
@@ -399,6 +401,7 @@ footer a {
 </style>
 </head>
 <body>
+
 	<nav class="navigation background">
 		<ul class="nav-list">
 			<div class="logo">
@@ -416,80 +419,49 @@ footer a {
 	</nav>
 
 <h>CPU's</h>
+
 <div id="container">
   <!-- Start of Main Content Area -->
   <div id="main_content">
-    <!-- Start of New Item Description -->
-    <div id="new_item">
-      <div id="new_item_header">
-        <h1>clicked on item</h1>
-        <h2>Model 123-E7</h2>
-      </div>
-      <div id="new_item_image"> <img src="images/item_new.gif" width="242" height="180" alt="New Item Name" /> </div>
-      <div id="new_item_text">
-        <p>php sql qery for product picture </p>
-        <p>sql qerrry for product discription</p>
-        <p></p>
-      </div>
-      <div id="new_item_link"> <a href="#">.....Read More</a> </div>
-      <div class="clearthis">&nbsp;</div>
-    </div>
-    <!-- End of New Item Description -->
-    <div class="h_divider">&nbsp;</div>
-    <!-- Start of Sub Item Descriptions -->
-    <div class="sub_items">
-      <!-- Start Left Sub Item -->
-      <div class="sub_left">
-        <div class="sub_items_header">
-          <h1>related product 1</h1>
-          <h2>Model 34-07-L</h2>
-        </div>
-        <div class="sub_items_image"> <img src="images/item_printer.gif" width="167" height="164" alt="Sub Item Name" /> </div>
-        <div class="sub_items_text">
-          <p>related prducts can go here </p>
-          <p> <strong>  <br />
-             <br />
-             </strong> </p>
-        </div>
-        <div class="sub_items_cartinfo">
-          <div class="price">
-            <h2>$46.99</h2>
-          </div>
-          <div class="addtocart"> <a href="#"><span>Add to Cart</span></a> </div>
-          <div class="clearthis">&nbsp;</div>
-        </div>
-        <div class="clearthis">&nbsp;</div>
-      </div>
-      <!-- End of Left Sub Item -->
-      <!-- Start Right Sub Item -->
-      <div class="sub_right">
-        <div class="sub_items_header">
-          <h1>related product 2 </h1>
-          <h2>Model 66-0l-X</h2>
-        </div>
-        <div class="sub_items_image"> <img src="images/item_scanner.gif" width="175" height="170" alt="Sub Item Name" /> </div>
-        <div class="sub_items_text">
-          <p>and here</p>
-          <p> <strong> Super performance <br />
-            3 year warranty <br />
-            1 year  free servicing </strong> </p>
-        </div>
-        <div class="sub_items_cartinfo">
-          <div class="price">
-            <h2>$45.99</h2>
-          </div>
-          <div class="addtocart"> <a href="#"><span>Add to Cart</span></a> </div>
-          <div class="clearthis">&nbsp;</div>
-        </div>
-        <div class="clearthis">&nbsp;</div>
-      </div>
-      <!-- End of Right Sub Item -->
-      <div class="clearthis">&nbsp;</div>
-    </div>
-    <!-- End of Sub Item Descriptions -->
-    <div class="h_divider">&nbsp;</div>
+<?php
+
+$val = $_POST['val'];
+
+$servername = "localhost";
+$username = "jsphardw_admin";
+$password = "pz-;Ry,ePd%W";
+$dbname = "jsphardw_idkwhattoputhere";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+$sql =("SELECT * FROM Product WHERE Department_Name = 'CPU'");
+
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+
+$i = 0;
+while($row = $result->fetch_assoc())
+{
+    echo "<table border='1'>";
+
+    echo "<tr>";
+    foreach ($row as $value) {
+      echo "<td>" . $value . "</td>";
+    }
+    echo "</tr>";
+
+    echo "</table><br />";
+}
+} 
+else {
+      echo "Error";
+}
+$conn->close();
+
+?>
   </div>
   <!-- End of Main Content Area -->
+  
   <div class="clearthis">&nbsp;</div>
   <!-- Start of Page Footer -->
   <div id="page_footer">
