@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
 <html>
 <head>
 <style>
@@ -74,12 +84,14 @@
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
 </head>
 <body>
+    
   <nav class="navigation background">
 		<ul class="nav-list">
 			<div class="logo">
 				<img src= "logopjs.PNG">
 			</div>
-			<li><a href="http://jsphardware.store/homePage.html">Log Out</a></li>
+<li><a>LOGGED IN AS ADMIN</a></li>
+			<li><a href="logout.php">Log Out</a></li>
       <form id="report" action="report.php" method="post">
       <li><input type="submit" value="View Inventory" class = "btn"></input></li>
 	</form>

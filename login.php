@@ -2,11 +2,11 @@
 // Initialize the session
 session_start();
  
-//// Check if the user is already logged in, if yes then redirect him to welcome page
-//if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//    header("location: adminPage.html");
-//    exit;
-//}
+ //Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: adminPage.html");
+    exit;
+}
  
 // Include config file
 require_once "config.php";
@@ -35,7 +35,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT Admin_ID, Admin_Name, Admin_Password FROM Customer WHERE Admin_Name = ?";
+        $sql = "SELECT Admin_Name, Admin_Password,Admin_role FROM Admin WHERE Admin_Name = ?";
+        
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -43,19 +44,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_username = $username;
-            
+           
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
-                
+                $result=mysqli_stmt_execute($query);
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                     
+                    mysqli_stmt_bind_result($stmt, $username, $password, $role);
                     if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
+                        //if(password_verify($password)){
+                            if($role== "admin" ){
+                            // start a new session
                             session_start();
                             
                             // Store data in session variables
@@ -64,17 +67,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to admin page
-                            header("location: adminpage.html");
-                        } else{
+                            header("location: adminpage.php");
+                            }
+                            else{
+                                session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;                            
+                            
+                            // Redirect user to manager page
+                            header("location: managerpage.html");
+                            }
+                        //} 
+                        //else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
-                        }
+                            //$login_err = "incorect password.";
+                        //}
                     }
-                } else{
+                } 
+                else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                     //header("location: managerpage.html");
+                    $login_err = "username does not exist.";
                 }
-            } else{
+            } 
+            else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
@@ -124,7 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+            
         </form>
     </div>
 </body>
