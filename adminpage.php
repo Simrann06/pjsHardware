@@ -90,7 +90,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 			<div class="logo">
 				<img src= "logopjs.PNG">
 			</div>
-<li><a>LOGGED IN AS ADMIN</a></li>
+			<li><a>LOGGED IN AS ADMIN</a></li>
 			<li><a href="logout.php">Log Out</a></li>
       <form id="report" action="report.php" method="post">
       <li><input type="submit" value="View Inventory" class = "btn"></input></li>
