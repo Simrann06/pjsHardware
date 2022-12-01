@@ -409,7 +409,6 @@ footer a {
 			</div>
 			<li><a href="http://jsphardware.store/homePage.html">Home</a></li>
             <li><a href="http://jsphardware.store/productpage_main.html">Products</a></li>
-			<li><a href="http://jsphardware.store/cart.html">Cart</a></li>
 			<li><a href="http://jsphardware.store/checkout.html">Checkout</a></li>
 		</ul>
 		<div class="searchButton">
@@ -490,7 +489,7 @@ $conn->close();
     <h1>About</h1>
     <ul>
 		<li><a href="http://jsphardware.store/product_page1.html">Products</a></li>
-		<li><a href="http://jsphardware.store/cart.html">Cart</a></li>
+
 		<li><a href="http://jsphardware.store/checkout.html">Checkout</a></li>
     </ul>
   </div>
