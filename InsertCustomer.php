@@ -1,6 +1,10 @@
 <?php
 
+// sanitize input and create needed variables 
 $ID = rand(100000,999999);
+$OrderID = rand(10000000,99999999);
+$date = date("Y/m/d");
+$items = $_POST['items'];
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -14,30 +18,67 @@ $Exp_month = $_POST['Exp_month'];
 $Exp_year = $_POST['Exp_year'];
 $cvv = $_POST['cvv'];
 
+$string = $items;
+$array = explode(',', $string); 
 
+$orderSize = sizeof($array);
 
+// Initialize connections
 $servername = "localhost";
 $username = "jsphardw_admin";
 $password = "pz-;Ry,ePd%W";
 $dbname = "jsphardw_idkwhattoputhere";
 
+// connection for customer 
 $conn = new mysqli($servername, $username, $password, $dbname);
+// connection for order 
+$conn2 = new mysqli($servername, $username, $password, $dbname);
+// connection for deletions 
+$conn3 = new mysqli($servername, $username, $password, $dbname);
 
-$stmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone, Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-$stmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
 
 try {  
-        $stmt->execute();  
-        echo "<script>alert('Your Order Has Been Submitted');</script>";
-    }  
-catch (Exception $e) {  
+
+		// Create customer statement
+		$custStmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone, 
+			Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+		$custStmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
+
+		$custStmt->execute();
+
+		$conn1->close();
+
+
+		// Create Order statement
+		$orderStmt = $conn2->prepare("INSERT INTO Order (Order_No , Order_Account , Order_Date, Order_Qty, Items_Purchased) VALUES (?,?,?,?,?)");
+
+		$orderStmt->bind_param("iisis", $OrderID, $ID ,$date ,$orderSize, $items);
+
+		$orderStmt->execute();
+
+		$conn2->close();
+
+
+		// Remove products from database
+		foreach($array as $value) 
+		{
+		    $delStmt = $conn3->prepare("DELETE FROM Product WHERE Product_ID = ?)");
+			$delStmt->bind_param("i", $value);
+			$delStmt->execute();
+		}
+
+		$conn3->close();
+
+
+		echo "<script>alert('Your Order Has Been Submitted');</script>";
+
+	}  
+
+catch (Exception $e) 
+	{  
         echo $e;
     }  
-
-
-$stmt->close();
-$conn->close();
 
 ?>
 
