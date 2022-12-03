@@ -77,7 +77,7 @@ try {
 
 catch (Exception $e) 
 	{  
-        echo $e;
+        echo "<script>alert('$e');</script>";
     }  
 
 ?>
