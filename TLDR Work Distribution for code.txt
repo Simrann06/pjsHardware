@@ -1,0 +1,22 @@
+adminpage.php - Jake 
+checkout.html- Jake
+DeleteCustomer.php- Jake
+DeleteObjectAdmin.php- Jake
+dept.accessories.php- Phillip
+dept.cpus.php- Phillip
+dept.gpus.php- Phillip
+dept.memory.php- Phillip
+dept.monitors.php- Phillip
+EditDescAdmin.php- Jake
+EditDescManager.php- Jake
+EditPriceAdmin.php- Jake
+EditPriceManager.php- Jake
+homePage.html- Jake Phillip Simran
+InsertCustomer.php- Jake
+InsertProduct.php- Jake
+login.php- Phillip
+logout.php- Phillip
+managerpage.html- Jake
+productpage_main.html- Jake
+product_count.php- Jake
+report.php- Jake
