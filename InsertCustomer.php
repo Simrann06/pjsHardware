@@ -42,7 +42,7 @@ try {
 		// Create customer statement
 		$custStmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone,Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-		$custStmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv );
+		$custStmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv);
 
 		$custStmt->execute();
 
@@ -76,7 +76,8 @@ try {
 
 catch (Exception $e) 
 	{  
-        echo "<script>alert('$e');</script>";
+		echo $e;
+        echo "<script>alert('Error');</script>";
     }  
 
 ?>
