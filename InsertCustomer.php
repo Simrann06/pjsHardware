@@ -3,7 +3,7 @@
 // sanitize input and create needed variables 
 $ID = rand(100000,999999);
 $OrderID = rand(10000000,99999999);
-$date = date("Y/m/d");
+$date = date('m/d/Y');
 $items = $_POST['items'];
 $name = $_POST['name'];
 $email = $_POST['email'];
