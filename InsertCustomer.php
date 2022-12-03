@@ -1,74 +1,115 @@
 <?php
 
-	// sanitize input and create needed variables 
-	$items = $_POST['items'];
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$phone = $_POST['phone'];
-	$addr = $_POST['addr'];
-	$city = $_POST['city'];
-	$zip = $_POST['zip'];
-	$state = $_POST['state'];
-	$card_name = $_POST['card_name'];
-	$card_num = $_POST['card_num'];
-	$Exp_month = $_POST['Exp_month'];
-	$Exp_year = $_POST['Exp_year'];
-	$cvv = $_POST['cvv'];
-
 	$ID = rand(100000, 999999);
-	$OrderID = rand(10000000, 99999999);
-//	$date = date('m/d/Y');
+	$items = $_POST['items'];
+	$array = explode(',', $items);
+	$orderSize = sizeof($array);
+
+	function ProductTable($ID)
+	{
+		// sanitize input and create needed variables 
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$addr = $_POST['addr'];
+		$city = $_POST['city'];
+		$zip = $_POST['zip'];
+		$state = $_POST['state'];
+		$card_name = $_POST['card_name'];
+		$card_num = $_POST['card_num'];
+		$Exp_month = $_POST['Exp_month'];
+		$Exp_year = $_POST['Exp_year'];
+		$cvv = $_POST['cvv'];
+
+
+		// Initialize connections
+		$servername = "localhost";
+		$username = "jsphardw_admin";
+		$password = "pz-;Ry,ePd%W";
+		$dbname = "jsphardw_idkwhattoputhere";
+
+		// connection for Product 
+		$conn = new mysqli($servername, $username, $password, $dbname);
+
+		$conn->autocommit(FALSE);
+
+		// Create customer statement
+		$Stmt1 = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, 
+				Customer_Phone,Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+
+		$Stmt1->bind_param("isssssisssiii", $ID, $name, $email, $phone, $addr, $city, $zip, $state, $card_name, $card_num, $Exp_month, $Exp_year, $cvv);
+
+		$Stmt1->execute();
+
+		$conn->autocommit(true);
+
+		$conn->close();
+
+	}
+
+
+	function OrderTable($ID,$orderSize,$items)
+	{
+
+		$date = date('m/d/Y');
+
+		$OrderID = rand(10000000, 99999999);
+
+
+		// Initialize connections
+		$servername = "localhost";
+		$username = "jsphardw_admin";
+		$password = "pz-;Ry,ePd%W";
+		$dbname = "jsphardw_idkwhattoputhere";
+
+		$conn = new mysqli($servername, $username, $password, $dbname);
+
+		$conn->autocommit(FALSE);
+
+		$Stmt2 = $conn->prepare("INSERT INTO Orders (Order_ID , Order_Date, Order_Qty, Items_Purchased, Order_Account) VALUES (?,?,?,?,?)");
+		$Stmt2->bind_param("isisi", $OrderID, $date, $orderSize, $items, $ID);
+
+		$Stmt2->execute();
+
+		$conn->autocommit(true);
+
+		$conn->close();
+
+
+	}
+
+
+//function DropThem($items)
+//{
 //
-//	$array = explode(',', $items); 
+//	// Initialize connections
+//	$servername = "localhost";
+//	$username = "jsphardw_admin";
+//	$password = "pz-;Ry,ePd%W";
+//	$dbname = "jsphardw_idkwhattoputhere";
 //
-//	$orderSize = sizeof($array);
-
-
-	$date = '3';
-	$orderSize = 3;
-
-	// Initialize connections
-	$servername = "localhost";
-	$username = "jsphardw_admin";
-	$password = "pz-;Ry,ePd%W";
-	$dbname = "jsphardw_idkwhattoputhere";
-
-	// connection for Product 
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	$conn->autocommit(FALSE);
-
-	// Create customer statement
-	$Stmt1 = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone,Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-	$Stmt2 = $conn->prepare("INSERT INTO Order (Order_No , Order_Account , Order_Date, Order_Qty, Items_Purchased) VALUES (?,?,?,?,?)");
-
-	//	$conn->close();
-//
-//	// connection for order 
 //	$conn = new mysqli($servername, $username, $password, $dbname);
 //
-	// Create Order statement
-	$Stmt1->bind_param("isssssisssiii", $ID, $name, $email, $phone, $addr, $city, $zip, $state, $card_name, $card_num, $Exp_month, $Exp_year, $cvv);
-	$Stmt2->bind_param("iisis", $OrderID, $ID, $date, $orderSize, $items);
-
-	$Stmt1->execute();
-	$Stmt2->execute();
-
-	$conn->autocommit(true);
-
-	// Remove products from database
-
-	//	foreach($array as $value) 
-//	{
-//	    $delStmt = $conn3->prepare("DELETE FROM Product WHERE Product_ID = ?)");
-//		$delStmt->bind_param("i", $value);
-//		$delStmt->execute();
-//	}
+//	// Remove products from database
 //
-//	$conn3->close();
-	echo "<script>alert('Your Order Has Been Submitted');</script>";
+//	$delStmt = $conn->prepare("DELETE FROM Product WHERE Product_ID = ?)");
+//	$delStmt->bind_param("i", $items);
+//	$delStmt->execute();
+//
+//
+//	$conn->close();
+//}
+
+ProductTable($ID);
+OrderTable($ID,$orderSize,$items);
+//DropThem($items);
+
+echo "<script>alert('Your Order Has Been Submitted');</script>";
 
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
