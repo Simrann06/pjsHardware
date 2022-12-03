@@ -1,84 +1,70 @@
 <?php
 
 // sanitize input and create needed variables 
-$ID = rand(100000,999999);
-$OrderID = rand(10000000,99999999);
-$date = date('m/d/Y');
-$items = $_POST['items'];
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$addr = $_POST['addr'];
-$city = $_POST['city'];
-$zip = $_POST['zip'];
-$state = $_POST['state'];
-$card_name = $_POST['card_name'];
-$card_num = $_POST['card_num'];
-$Exp_month = $_POST['Exp_month'];
-$Exp_year = $_POST['Exp_year'];
-$cvv = $_POST['cvv'];
+	$items = $_POST['items'];
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+	$addr = $_POST['addr'];
+	$city = $_POST['city'];
+	$zip = $_POST['zip'];
+	$state = $_POST['state'];
+	$card_name = $_POST['card_name'];
+	$card_num = $_POST['card_num'];
+	$Exp_month = $_POST['Exp_month'];
+	$Exp_year = $_POST['Exp_year'];
+	$cvv = $_POST['cvv'];
 
-$string = $items;
-$array = explode(',', $string); 
+	$ID = rand(100000,999999);
+	$OrderID = rand(10000000,99999999);
+	$date = date('m/d/Y');
 
-$orderSize = sizeof($array);
+	$string = $items;
+	$array = explode(',', $string); 
 
-// Initialize connections
-$servername = "localhost";
-$username = "jsphardw_admin";
-$password = "pz-;Ry,ePd%W";
-$dbname = "jsphardw_idkwhattoputhere";
+	$orderSize = sizeof($array);
 
-// connection for customer 
-$conn = new mysqli($servername, $username, $password, $dbname);
-// connection for order 
-$conn2 = new mysqli($servername, $username, $password, $dbname);
-// connection for deletions 
-$conn3 = new mysqli($servername, $username, $password, $dbname);
+	// Initialize connections
+	$servername = "localhost";
+	$username = "jsphardw_admin";
+	$password = "pz-;Ry,ePd%W";
+	$dbname = "jsphardw_idkwhattoputhere";
 
-
-try {  
-
-		// Create customer statement
-		$custStmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone,Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-		$custStmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv);
-
-		$custStmt->execute();
-
-		$conn1->close();
+	// connection for customer 
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// connection for order 
+	$conn2 = new mysqli($servername, $username, $password, $dbname);
+	// connection for deletions 
+	$conn3 = new mysqli($servername, $username, $password, $dbname);
 
 
-		// Create Order statement
-		$orderStmt = $conn2->prepare("INSERT INTO Order (Order_No , Order_Account , Order_Date, Order_Qty, Items_Purchased) VALUES (?,?,?,?,?)");
 
-		$orderStmt->bind_param("iisis", $OrderID, $ID ,$date ,$orderSize, $items);
-
-		$orderStmt->execute();
-
-		$conn2->close();
+	// Create customer statement
+	$custStmt = $conn->prepare("INSERT INTO Customer (Customer_ID , Customer_Name , Customer_Email, Customer_Phone,Customer_Address, Customer_City, Customer_Zip, Customer_State, Card_Name, Credit_Card_Number, Exp_Month, Exp_Year, CVV) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	$custStmt->bind_param("isssssisssiii", $ID, $name ,$email ,$phone,$addr ,$city ,$zip ,$state,$card_name ,$card_num ,$Exp_month, $Exp_year ,$cvv);
+	$custStmt->execute();
+	$conn1->close();
 
 
-		// Remove products from database
-		foreach($array as $value) 
-		{
-		    $delStmt = $conn3->prepare("DELETE FROM Product WHERE Product_ID = ?)");
-			$delStmt->bind_param("i", $value);
-			$delStmt->execute();
-		}
-
-		$conn3->close();
+	// Create Order statement
+	$orderStmt = $conn2->prepare("INSERT INTO Order (Order_No , Order_Account , Order_Date, Order_Qty, Items_Purchased) VALUES (?,?,?,?,?)");
+	$orderStmt->bind_param("iisis", $OrderID, $ID ,$date ,$orderSize, $items);
+	$orderStmt->execute();
+	$conn2->close();
 
 
-		echo "<script>alert('Your Order Has Been Submitted');</script>";
+	// Remove products from database
 
-	}  
+	foreach($array as $value) 
+	{
+	    $delStmt = $conn3->prepare("DELETE FROM Product WHERE Product_ID = ?)");
+		$delStmt->bind_param("i", $value);
+		$delStmt->execute();
+	}
 
-catch (Exception $e) 
-	{  
-		echo $e;
-        echo "<script>alert('Error');</script>";
-    }  
+	$conn3->close();
+
+	echo "<script>alert('Your Order Has Been Submitted');</script>";
 
 ?>
 
