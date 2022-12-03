@@ -79,26 +79,31 @@
 	}
 
 
-//function DropThem($items)
-//{
+//	function DropThem($items)
+//	{
 //
-//	// Initialize connections
-//	$servername = "localhost";
-//	$username = "jsphardw_admin";
-//	$password = "pz-;Ry,ePd%W";
-//	$dbname = "jsphardw_idkwhattoputhere";
+//		// Initialize connections
+//		$servername = "localhost";
+//		$username = "jsphardw_admin";
+//		$password = "pz-;Ry,ePd%W";
+//		$dbname = "jsphardw_idkwhattoputhere";
 //
-//	$conn = new mysqli($servername, $username, $password, $dbname);
+//		$conn = new mysqli($servername, $username, $password, $dbname);
 //
-//	// Remove products from database
+//		// Remove products from database
 //
-//	$delStmt = $conn->prepare("DELETE FROM Product WHERE Product_ID = ?)");
-//	$delStmt->bind_param("i", $items);
-//	$delStmt->execute();
+//		$conn->autocommit(FALSE);
 //
+//		$Stmt3 = $conn->prepare("DELETE FROM Product WHERE Product_ID = ?)");
+//		$Stmt3->bind_param("i", $items);
 //
-//	$conn->close();
-//}
+//		$Stmt3->execute();
+//
+//		$conn->autocommit(true);
+//
+//		$conn->close();
+//	}
+//
 
 ProductTable($ID);
 OrderTable($ID,$orderSize,$items);
