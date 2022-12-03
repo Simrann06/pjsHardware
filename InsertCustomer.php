@@ -17,12 +17,12 @@
 
 	$ID = rand(100000,999999);
 	$OrderID = rand(10000000,99999999);
-	$date = date('m/d/Y');
-
-	$string = $items;
-	$array = explode(',', $string); 
-
-	$orderSize = sizeof($array);
+	//$date = date('m/d/Y');
+//
+	//$string = $items;
+	//$array = explode(',', $string); 
+//
+	//$orderSize = sizeof($array);
 
 	// Initialize connections
 	$servername = "localhost";
