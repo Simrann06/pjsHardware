@@ -209,16 +209,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 // function to delete product
 // command = DeleteProduct Product_ID
 
-	DeleteProduct: function ($val) 
+	DeleteProduct: function ($items) 
 		{
-		var val = $val;
+		var items = $items;
 
 		try { 
 
 			$.ajax({
             	type: 'POST',
             	url: 'DeleteObjectAdmin.php',
-            	data: { val:val },
+            	data: { items:items },
             	success: function(result) {
                 	$('#sonuc').html(result);
             	},

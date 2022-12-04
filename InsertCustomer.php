@@ -81,39 +81,13 @@
 
 		$conn->close();
 
-
 	}
 
 
-//	function DropThem($items)
-//	{
-//
-//		// Initialize connections
-//		$servername = "localhost";
-//		$username = "jsphardw_admin";
-//		$password = "pz-;Ry,ePd%W";
-//		$dbname = "jsphardw_idkwhattoputhere";
-//
-//		$conn = new mysqli($servername, $username, $password, $dbname);
-//
-//		// Remove products from database
-//
-//		$conn->autocommit(FALSE);
-//
-//		$Stmt3 = $conn->prepare("DELETE FROM Product WHERE Product_ID = ?)");
-//		$Stmt3->bind_param("i", $items);
-//
-//		$Stmt3->execute();
-//
-//		$conn->autocommit(true);
-//
-//		$conn->close();
-//	}
-//
 
 ProductTable($ID);
 OrderTable($ID,$orderSize,$items);
-//DropThem($items);
+include 'DeleteObjectAdmin.php';
 
 echo "<script>alert('Your Order Has Been Submitted');</script>";
 
